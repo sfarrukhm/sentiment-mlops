@@ -1,7 +1,0 @@
-torch
-transformers
-datasets
-fastapi
-uvicorn
-pydantic
-scikit-learn
