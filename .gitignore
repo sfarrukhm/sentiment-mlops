@@ -1,2 +1,6 @@
-.venv-smlops/
 models/
+.venv-smlops/
+
+# Ignore Python cache and nohup output
+app/__pycache__/
+nohup.out
