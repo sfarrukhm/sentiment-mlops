@@ -1,33 +1,28 @@
 import os
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
+from app.utils import load_model, predict_text
 
-app = FastAPI()
 
-model_dir = "models/distilbert_model"
+import time
+import logging
+logging.basicConfig(filename='app.log',
+                    level=logging.INFO,
+                    format='%(asctime)s | %(levelname)s | %(message)s'
+                    )
 
-# load model & tokenizer at start
-try:
-    tokenizer=AutoTokenizer.from_pretrained(model_dir)
-    model=AutoModelForSequenceClassification.from_pretrained(model_dir)
-    model.eval()
-except Exception as e:
-    # if model not found or failed to load, raise server error on startup
-    raise RuntimeError(f"Failed to load model from {model_dir}: {e}")
-
-@app.get("/ping")
-def ping():
-    return {"status":"ok"}
-
+# --- Initialize app and model ---
+app = FastAPI(title="Sentiment Inference API")
+model, tokenizer = load_model()
 @app.get("/predict")
-def predict(text: str):
-    if not text:
-        raise HTTPException(status_code=400, detail="empty text")
-    # simple CPU inference
-    inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True)
-    with torch.no_grad():
-        outputs = model(**inputs)
-    score = outputs.logits.softmax(dim=-1).tolist()[0]
-    label = int(outputs.logits.argmax().item())
-    return {"label": label, "scores": score}
+async def predict(request: Request, text:str)
+    """API endpoint for sentiment prediction."""
+    strat_time=time.time()
+    result=predict_text(model, tokenizer, text)
+    latency=(time.time()-start_time)*1000 # ms
+
+    client_ip = request.client.host
+    logging.info(
+    f"Client: {client_ip} | Text Length: {len(text)} | Latency: {latency: .2f} ms | Result: {result}")
+    return {"sentiment":result, "latency_ms":latency}
