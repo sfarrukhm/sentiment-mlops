@@ -1,0 +1,6 @@
+2025-10-05 18:54:10,641 | INFO | Model already present locally.
+2025-10-05 18:54:11,249 | INFO | Model loaded from local S3 copy.
+2025-10-05 18:54:16,569 | INFO | Client: 154.80.102.155 | Text Length: 21 | Latency:  71.22 ms | Result: positive
+2025-10-05 18:54:26,709 | INFO | Client: 154.80.102.155 | Text Length: 15 | Latency:  38.03 ms | Result: negative
+2025-10-05 18:54:37,536 | INFO | Client: 154.80.102.155 | Text Length: 12 | Latency:  36.60 ms | Result: negative
+2025-10-05 18:54:51,489 | INFO | Client: 154.80.102.155 | Text Length: 17 | Latency:  43.21 ms | Result: negative
