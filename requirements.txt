@@ -1,0 +1,12 @@
+boto3==1.40.45
+fastapi==0.118.0
+numpy==2.3.3
+pandas==2.3.3
+pylint==3.3.8
+safetensors==0.6.2
+transformers==4.57.0
+uvicorn==0.37.0
+pytest==8.4.2
+black==25.9.0
+ruff==0.13.3
+mypy==1.18.2
