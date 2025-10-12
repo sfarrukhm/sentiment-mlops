@@ -12,11 +12,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Test syntax 
-        run: make test
+      # - name: Test syntax 
+      #   run: make test
+      - name: Perform Linting
+        run: make lint
 
       - name: Deploy to EC2
-        uses: appleboy/ssh-action@1.0.0
+        uses: appleboy/ssh-action@v0.1.9
         with:
           host: 52.13.56.115
           username: ${{secrets.EC2_HOST}}
