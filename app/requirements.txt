@@ -1,8 +1,0 @@
-fastapi
-uvicorn
-transformers
-boto3
-safetensors
-pandas
-numpy
-pylint

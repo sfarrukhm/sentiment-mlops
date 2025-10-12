@@ -8,7 +8,7 @@ api_url = "http://52.13.56.115:8000/predict"
 concurrent_users = 20
 total_requests = 1
 
-sample_texts=[
+sample_texts = [
     "An absolute masterpiece. Every frame felt alive and meaningful.",
     "Pretty boring, I fell asleep halfway through.",
     "The acting was strong, but the story was slow and predictable.",
@@ -38,20 +38,26 @@ sample_texts=[
     "A moving story told with honesty and heart. Highly recommended.",
     "Loud, messy, and overlong. I couldn’t wait for it to end.",
     "Great soundtrack, mediocre story, but entertaining overall.",
-    "A flawed but fascinating film that lingers in your mind afterward."
+    "A flawed but fascinating film that lingers in your mind afterward.",
 ]
+
 
 async def send_request(session, text):
     start = time.perf_counter()
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]  # e.g., 2025-10-07 15:45:12.123
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")[
+        :-3
+    ]  # e.g., 2025-10-07 15:45:12.123
 
     try:
         async with session.get(api_url, params={"text": text}) as response:
             result = await response.json()
             latency = (time.perf_counter() - start) * 1000  # ms
-            print(f"[{timestamp}] Text: {text[:30]:<30} | Result: {result.get('sentiment', 'N/A'):<8} | Latency: {latency:.2f}ms")
+            print(
+                f"[{timestamp}] Text: {text[:30]:<30} | Result: {result.get('sentiment', 'N/A'):<8} | Latency: {latency:.2f}ms"
+            )
     except Exception as e:
         print(f"Error sending request: {e}")
+
 
 async def main():
     async with aiohttp.ClientSession() as session:
@@ -67,7 +73,6 @@ async def main():
 
         if tasks:
             await asyncio.gather(*tasks)
-
 
 
 if __name__ == "__main__":

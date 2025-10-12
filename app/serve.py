@@ -16,7 +16,7 @@ formatter = logging.Formatter("%(asctime)s | %(levelname)s | %(message)s")
 file_handler.setFormatter(formatter)
 
 # get root logger and attach
-logger=logging.getLogger()
+logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 logger.addHandler(file_handler)
 
@@ -28,19 +28,22 @@ logger.addHandler(console_handler)
 app = FastAPI(title="Sentiment Inference API")
 model, tokenizer = load_model()
 
+
 # ---- Check connectivity
 @app.get("/ping")
 def ping():
-    return {"status":200}
+    return {"status": 200}
+
 
 @app.get("/predict")
-async def predict(request: Request, text:str):
+async def predict(request: Request, text: str):
     """API endpoint for sentiment prediction."""
-    start_time=time.time()
-    result=predict_text(model, tokenizer, text)
-    latency=(time.time()-start_time)*1000 # ms
+    start_time = time.time()
+    result = predict_text(model, tokenizer, text)
+    latency = (time.time() - start_time) * 1000  # ms
 
     client_ip = request.client.host
     logger.info(
-    f"Client: {client_ip} | Text Length: {len(text)} | Latency: {latency: .2f} ms | Result: {result}")
-    return {"sentiment":result, "latency_ms":latency}
+        f"Client: {client_ip} | Text Length: {len(text)} | Latency: {latency: .2f} ms | Result: {result}"
+    )
+    return {"sentiment": result, "latency_ms": latency}

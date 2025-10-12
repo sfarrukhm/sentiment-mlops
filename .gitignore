@@ -1,6 +1,7 @@
 models/
 .venv-smlops/
-
+test.ipynb
 # Ignore Python cache and nohup output
 app/__pycache__/
 nohup.out
+*_cache

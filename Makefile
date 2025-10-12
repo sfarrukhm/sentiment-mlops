@@ -1,8 +1,17 @@
-# Lint all Python files recursively with pylint
+install:
+	pip install --upgrade pip &&\
+	pip install --requirements.txt
 
-.PHONY: lint
+# test:
+
+format:
+	black **/*.py
+
+
 lint:
-	@echo "🔍 Linting all Python files with pylint..."
-	@find . -type f -name "*.py" | xargs pylint --disable=R,C
-	@echo "✅ Linting complete!"
+	pylint --disable=R,C, app/serve.py
+
+all: install lint format
+
+		
 
