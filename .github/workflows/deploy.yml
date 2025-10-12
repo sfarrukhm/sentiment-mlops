@@ -34,6 +34,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd /home/ubuntu/sentiment-mlops
+            git pull origin main
             ./deploy.sh
 
 
