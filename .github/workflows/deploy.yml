@@ -35,6 +35,7 @@ jobs:
           script: |
             cd /home/ubuntu/sentiment-mlops
             git pull origin main
+            chmod +x ./deploy.sh
             ./deploy.sh
 
 
