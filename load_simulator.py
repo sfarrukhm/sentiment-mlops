@@ -6,7 +6,7 @@ from datetime import datetime
 
 api_url = "http://52.13.56.115:8000/predict"
 concurrent_users = 20
-total_requests = 1
+total_requests = 200
 
 sample_texts = [
     "An absolute masterpiece. Every frame felt alive and meaningful.",
