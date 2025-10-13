@@ -44,6 +44,6 @@ async def predict(request: Request, text: str):
 
     client_ip = request.client.host
     logger.info(
-        f"Client: {client_ip} | Text Length: {len(text)} | Latency: {latency: .2f} ms | Result: {result}"
+        f"Client: {client_ip} |Input: {text} | Text Length: {len(text)} | Latency: {latency: .2f} ms | Result: {result}"
     )
     return {"sentiment": result, "latency_ms": latency}
