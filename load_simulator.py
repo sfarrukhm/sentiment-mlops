@@ -2,11 +2,35 @@ import asyncio
 import aiohttp
 import random
 import time
+import logging
+import os
 from datetime import datetime
+from tqdm import tqdm  # progress bar
 
+# -----------------------------
+# Config
+# -----------------------------
 api_url = "http://52.13.56.115:8000/predict"
 concurrent_users = 20
-total_requests = 200
+total_requests = 300
+
+LOG_DIR = "logs"
+os.makedirs(LOG_DIR, exist_ok=True)
+log_path = os.path.join(LOG_DIR, "simulator.log")
+
+# delete previous log file if it exists
+if os.path.exists(log_path):
+    os.remove(log_path)
+# -----------------------------
+# Setup logging
+# -----------------------------
+logger = logging.getLogger("simulator")
+logger.setLevel(logging.INFO)
+file_handler = logging.FileHandler(log_path)
+formatter = logging.Formatter("%(asctime)s | %(message)s")
+file_handler.setFormatter(formatter)
+logger.addHandler(file_handler)
+
 
 sample_texts = [
     "An absolute masterpiece. Every frame felt alive and meaningful.",
@@ -42,37 +66,46 @@ sample_texts = [
 ]
 
 
+# -----------------------------
+# Async request
+# -----------------------------
 async def send_request(session, text):
     start = time.perf_counter()
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")[
-        :-3
-    ]  # e.g., 2025-10-07 15:45:12.123
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
 
     try:
         async with session.get(api_url, params={"text": text}) as response:
             result = await response.json()
             latency = (time.perf_counter() - start) * 1000  # ms
-            print(
+
+            # log only to file
+            logger.info(
                 f"[{timestamp}] Text: {text[:30]:<30} | Result: {result.get('sentiment', 'N/A'):<8} | Latency: {latency:.2f}ms"
             )
     except Exception as e:
-        print(f"Error sending request: {e}")
+        logger.error(f"Error: {e}")
 
 
+# -----------------------------
+# Main function with progress bar
+# -----------------------------
 async def main():
     async with aiohttp.ClientSession() as session:
         tasks = []
-        for _ in range(total_requests):
-            text = random.choice(sample_texts)
-            task = asyncio.create_task(send_request(session, text))
-            tasks.append(task)
+        with tqdm(total=total_requests, desc="Simulating load", ncols=80) as pbar:
+            for i in range(total_requests):
+                text = random.choice(sample_texts)
+                task = asyncio.create_task(send_request(session, text))
+                tasks.append(task)
 
-            if len(tasks) >= concurrent_users:
+                if len(tasks) >= concurrent_users:
+                    await asyncio.gather(*tasks)
+                    tasks = []
+                    pbar.update(concurrent_users)
+
+            if tasks:
                 await asyncio.gather(*tasks)
-                tasks = []
-
-        if tasks:
-            await asyncio.gather(*tasks)
+                pbar.update(len(tasks))
 
 
 if __name__ == "__main__":

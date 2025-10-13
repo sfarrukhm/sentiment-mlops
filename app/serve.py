@@ -43,7 +43,10 @@ async def predict(request: Request, text: str):
     latency = (time.time() - start_time) * 1000  # ms
 
     client_ip = request.client.host
+    snippet = text[:50].replace("\n", " ")  # truncate long inputs
+
     logger.info(
-        f"Client: {client_ip} |Input: {text} | Text Length: {len(text)} | Latency: {latency: .2f} ms | Result: {result}"
+        f"Client: {client_ip} | Text: \"{snippet}\" | Length: {len(text)} | Latency: {latency:.2f} ms | Result: {result}"
     )
-    return {"sentiment": result, "latency_ms": f"{latency: 0.2f}"}
+
+    return {"sentiment": result, "latency_ms": f"{latency:0.2f}"}

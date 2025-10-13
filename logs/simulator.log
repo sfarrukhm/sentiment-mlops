@@ -1,0 +1,300 @@
+2025-10-13 20:45:00,542 | [2025-10-13 20:44:59.928] Text: Beautiful cinematography but z | Result: positive | Latency: 613.35ms
+2025-10-13 20:45:00,594 | [2025-10-13 20:44:59.927] Text: The movie tried too hard to be | Result: negative | Latency: 666.43ms
+2025-10-13 20:45:00,656 | [2025-10-13 20:44:59.924] Text: Good ideas, but the execution  | Result: negative | Latency: 732.12ms
+2025-10-13 20:45:00,712 | [2025-10-13 20:44:59.926] Text: Loud, messy, and overlong. I c | Result: negative | Latency: 785.07ms
+2025-10-13 20:45:00,833 | [2025-10-13 20:44:59.928] Text: Great soundtrack, mediocre sto | Result: positive | Latency: 904.74ms
+2025-10-13 20:45:00,981 | [2025-10-13 20:44:59.926] Text: Good ideas, but the execution  | Result: negative | Latency: 1053.94ms
+2025-10-13 20:45:01,061 | [2025-10-13 20:44:59.927] Text: It’s okay — not great, not ter | Result: negative | Latency: 1134.27ms
+2025-10-13 20:45:01,123 | [2025-10-13 20:44:59.923] Text: Unexpectedly good! I went in w | Result: positive | Latency: 1199.64ms
+2025-10-13 20:45:01,186 | [2025-10-13 20:44:59.925] Text: A complete mess from start to  | Result: negative | Latency: 1260.68ms
+2025-10-13 20:45:01,279 | [2025-10-13 20:44:59.924] Text: Terrible script. Not even the  | Result: negative | Latency: 1356.05ms
+2025-10-13 20:45:01,332 | [2025-10-13 20:44:59.924] Text: The twists were brilliant! I d | Result: positive | Latency: 1407.53ms
+2025-10-13 20:45:01,412 | [2025-10-13 20:44:59.924] Text: An absolute masterpiece. Every | Result: positive | Latency: 1488.23ms
+2025-10-13 20:45:01,480 | [2025-10-13 20:44:59.925] Text: The twists were brilliant! I d | Result: positive | Latency: 1555.06ms
+2025-10-13 20:45:01,531 | [2025-10-13 20:44:59.926] Text: A complete mess from start to  | Result: negative | Latency: 1605.21ms
+2025-10-13 20:45:01,584 | [2025-10-13 20:44:59.925] Text: Terrible script. Not even the  | Result: negative | Latency: 1658.68ms
+2025-10-13 20:45:01,656 | [2025-10-13 20:44:59.926] Text: Good ideas, but the execution  | Result: negative | Latency: 1730.63ms
+2025-10-13 20:45:01,723 | [2025-10-13 20:44:59.927] Text: Good ideas, but the execution  | Result: negative | Latency: 1795.94ms
+2025-10-13 20:45:01,805 | [2025-10-13 20:44:59.928] Text: A dull and uninspired remake t | Result: negative | Latency: 1876.74ms
+2025-10-13 20:45:01,880 | [2025-10-13 20:44:59.929] Text: A complete mess from start to  | Result: negative | Latency: 1951.35ms
+2025-10-13 20:45:01,955 | [2025-10-13 20:44:59.927] Text: A solid film with great charac | Result: positive | Latency: 2029.04ms
+2025-10-13 20:45:02,425 | [2025-10-13 20:45:01.960] Text: The acting was strong, but the | Result: negative | Latency: 465.11ms
+2025-10-13 20:45:02,592 | [2025-10-13 20:45:01.961] Text: The humor was forced, and most | Result: negative | Latency: 631.84ms
+2025-10-13 20:45:02,751 | [2025-10-13 20:45:01.961] Text: A solid film with great charac | Result: positive | Latency: 789.10ms
+2025-10-13 20:45:02,861 | [2025-10-13 20:45:01.962] Text: The humor was forced, and most | Result: negative | Latency: 898.55ms
+2025-10-13 20:45:02,980 | [2025-10-13 20:45:01.961] Text: A dull and uninspired remake t | Result: negative | Latency: 1018.09ms
+2025-10-13 20:45:03,081 | [2025-10-13 20:45:01.963] Text: Loud, messy, and overlong. I c | Result: negative | Latency: 1117.29ms
+2025-10-13 20:45:03,171 | [2025-10-13 20:45:01.963] Text: It’s okay — not great, not ter | Result: negative | Latency: 1208.02ms
+2025-10-13 20:45:03,280 | [2025-10-13 20:45:01.964] Text: Honestly, I don’t get the hype | Result: positive | Latency: 1315.26ms
+2025-10-13 20:45:03,395 | [2025-10-13 20:45:01.963] Text: An absolute masterpiece. Every | Result: positive | Latency: 1431.27ms
+2025-10-13 20:45:03,500 | [2025-10-13 20:45:01.964] Text: Pretty boring, I fell asleep h | Result: negative | Latency: 1535.10ms
+2025-10-13 20:45:03,657 | [2025-10-13 20:45:01.965] Text: A dull and uninspired remake t | Result: negative | Latency: 1691.12ms
+2025-10-13 20:45:03,800 | [2025-10-13 20:45:01.965] Text: Predictable ending but still e | Result: positive | Latency: 1834.89ms
+2025-10-13 20:45:03,933 | [2025-10-13 20:45:01.966] Text: It’s okay — not great, not ter | Result: negative | Latency: 1966.43ms
+2025-10-13 20:45:04,162 | [2025-10-13 20:45:01.965] Text: A dull and uninspired remake t | Result: negative | Latency: 2196.18ms
+2025-10-13 20:45:04,209 | [2025-10-13 20:45:01.966] Text: It’s okay — not great, not ter | Result: negative | Latency: 2242.17ms
+2025-10-13 20:45:04,294 | [2025-10-13 20:45:01.966] Text: A moving story told with hones | Result: positive | Latency: 2327.29ms
+2025-10-13 20:45:04,421 | [2025-10-13 20:45:01.967] Text: A surprisingly emotional journ | Result: positive | Latency: 2454.08ms
+2025-10-13 20:45:04,506 | [2025-10-13 20:45:01.967] Text: Short, sweet, and hilarious. P | Result: positive | Latency: 2537.93ms
+2025-10-13 20:45:04,582 | [2025-10-13 20:45:01.969] Text: Cringe-worthy dialogue and woo | Result: negative | Latency: 2614.02ms
+2025-10-13 20:45:04,647 | [2025-10-13 20:45:01.969] Text: A complete mess from start to  | Result: negative | Latency: 2677.74ms
+2025-10-13 20:45:05,020 | [2025-10-13 20:45:04.647] Text: Beautiful cinematography but z | Result: positive | Latency: 372.08ms
+2025-10-13 20:45:05,131 | [2025-10-13 20:45:04.648] Text: A solid film with great charac | Result: positive | Latency: 483.58ms
+2025-10-13 20:45:05,213 | [2025-10-13 20:45:04.648] Text: Unexpectedly good! I went in w | Result: positive | Latency: 564.83ms
+2025-10-13 20:45:05,297 | [2025-10-13 20:45:04.648] Text: Honestly, I don’t get the hype | Result: positive | Latency: 649.04ms
+2025-10-13 20:45:05,381 | [2025-10-13 20:45:04.648] Text: A moving story told with hones | Result: positive | Latency: 731.85ms
+2025-10-13 20:45:05,460 | [2025-10-13 20:45:04.648] Text: The director’s best work yet — | Result: positive | Latency: 810.96ms
+2025-10-13 20:45:05,560 | [2025-10-13 20:45:04.648] Text: Short, sweet, and hilarious. P | Result: positive | Latency: 911.58ms
+2025-10-13 20:45:05,634 | [2025-10-13 20:45:04.650] Text: The humor was forced, and most | Result: negative | Latency: 984.04ms
+2025-10-13 20:45:05,701 | [2025-10-13 20:45:04.651] Text: It’s okay — not great, not ter | Result: negative | Latency: 1051.07ms
+2025-10-13 20:45:05,781 | [2025-10-13 20:45:04.651] Text: Pretty boring, I fell asleep h | Result: negative | Latency: 1130.63ms
+2025-10-13 20:45:05,880 | [2025-10-13 20:45:04.650] Text: Visually stunning, with music  | Result: positive | Latency: 1230.79ms
+2025-10-13 20:45:05,961 | [2025-10-13 20:45:04.650] Text: Heartwarming and funny. Remind | Result: positive | Latency: 1310.86ms
+2025-10-13 20:45:06,061 | [2025-10-13 20:45:04.652] Text: An absolute masterpiece. Every | Result: positive | Latency: 1409.00ms
+2025-10-13 20:45:06,170 | [2025-10-13 20:45:04.653] Text: An absolute masterpiece. Every | Result: positive | Latency: 1517.61ms
+2025-10-13 20:45:06,263 | [2025-10-13 20:45:04.653] Text: Cringe-worthy dialogue and woo | Result: negative | Latency: 1609.90ms
+2025-10-13 20:45:06,321 | [2025-10-13 20:45:04.652] Text: The movie tried too hard to be | Result: negative | Latency: 1669.39ms
+2025-10-13 20:45:06,389 | [2025-10-13 20:45:04.653] Text: A surprisingly emotional journ | Result: positive | Latency: 1735.98ms
+2025-10-13 20:45:06,478 | [2025-10-13 20:45:04.654] Text: Honestly, I don’t get the hype | Result: positive | Latency: 1823.75ms
+2025-10-13 20:45:06,562 | [2025-10-13 20:45:04.653] Text: A solid film with great charac | Result: positive | Latency: 1909.22ms
+2025-10-13 20:45:06,630 | [2025-10-13 20:45:04.654] Text: The movie tried too hard to be | Result: negative | Latency: 1975.47ms
+2025-10-13 20:45:06,969 | [2025-10-13 20:45:06.631] Text: Honestly, I don’t get the hype | Result: positive | Latency: 337.39ms
+2025-10-13 20:45:07,030 | [2025-10-13 20:45:06.632] Text: A complete mess from start to  | Result: negative | Latency: 397.67ms
+2025-10-13 20:45:07,107 | [2025-10-13 20:45:06.633] Text: A dull and uninspired remake t | Result: negative | Latency: 474.25ms
+2025-10-13 20:45:07,181 | [2025-10-13 20:45:06.634] Text: Loved it! The chemistry betwee | Result: positive | Latency: 547.50ms
+2025-10-13 20:45:07,230 | [2025-10-13 20:45:06.634] Text: Unexpectedly good! I went in w | Result: positive | Latency: 595.20ms
+2025-10-13 20:45:07,289 | [2025-10-13 20:45:06.635] Text: Loud, messy, and overlong. I c | Result: negative | Latency: 653.53ms
+2025-10-13 20:45:07,346 | [2025-10-13 20:45:06.636] Text: Beautiful cinematography but z | Result: positive | Latency: 709.58ms
+2025-10-13 20:45:07,423 | [2025-10-13 20:45:06.636] Text: A solid film with great charac | Result: positive | Latency: 786.34ms
+2025-10-13 20:45:07,497 | [2025-10-13 20:45:06.637] Text: Terrible script. Not even the  | Result: negative | Latency: 861.05ms
+2025-10-13 20:45:07,582 | [2025-10-13 20:45:06.637] Text: Terrible script. Not even the  | Result: negative | Latency: 943.98ms
+2025-10-13 20:45:07,647 | [2025-10-13 20:45:06.638] Text: Poorly edited and badly paced. | Result: negative | Latency: 1009.28ms
+2025-10-13 20:45:07,707 | [2025-10-13 20:45:06.638] Text: The director’s best work yet — | Result: positive | Latency: 1069.06ms
+2025-10-13 20:45:07,793 | [2025-10-13 20:45:06.638] Text: Loved it! The chemistry betwee | Result: positive | Latency: 1153.80ms
+2025-10-13 20:45:07,874 | [2025-10-13 20:45:06.640] Text: A moving story told with hones | Result: positive | Latency: 1233.91ms
+2025-10-13 20:45:07,947 | [2025-10-13 20:45:06.641] Text: Terrible script. Not even the  | Result: negative | Latency: 1305.71ms
+2025-10-13 20:45:08,029 | [2025-10-13 20:45:06.640] Text: Short, sweet, and hilarious. P | Result: positive | Latency: 1387.81ms
+2025-10-13 20:45:08,068 | [2025-10-13 20:45:06.642] Text: A complete mess from start to  | Result: negative | Latency: 1426.38ms
+2025-10-13 20:45:08,144 | [2025-10-13 20:45:06.646] Text: Terrible script. Not even the  | Result: negative | Latency: 1497.73ms
+2025-10-13 20:45:08,198 | [2025-10-13 20:45:06.642] Text: Unexpectedly good! I went in w | Result: positive | Latency: 1555.85ms
+2025-10-13 20:45:08,273 | [2025-10-13 20:45:06.646] Text: Incredible performances by the | Result: positive | Latency: 1626.33ms
+2025-10-13 20:45:08,646 | [2025-10-13 20:45:08.276] Text: Predictable ending but still e | Result: positive | Latency: 369.93ms
+2025-10-13 20:45:08,681 | [2025-10-13 20:45:08.277] Text: It’s okay — not great, not ter | Result: negative | Latency: 403.50ms
+2025-10-13 20:45:08,787 | [2025-10-13 20:45:08.274] Text: One of the worst films I’ve se | Result: negative | Latency: 512.89ms
+2025-10-13 20:45:08,794 | [2025-10-13 20:45:08.276] Text: A complete mess from start to  | Result: negative | Latency: 518.01ms
+2025-10-13 20:45:08,885 | [2025-10-13 20:45:08.277] Text: One of the worst films I’ve se | Result: negative | Latency: 608.72ms
+2025-10-13 20:45:08,933 | [2025-10-13 20:45:08.278] Text: A solid film with great charac | Result: positive | Latency: 655.36ms
+2025-10-13 20:45:09,006 | [2025-10-13 20:45:08.278] Text: Visually stunning, with music  | Result: positive | Latency: 727.28ms
+2025-10-13 20:45:09,058 | [2025-10-13 20:45:08.278] Text: Honestly, I don’t get the hype | Result: positive | Latency: 779.11ms
+2025-10-13 20:45:09,132 | [2025-10-13 20:45:08.280] Text: Incredible performances by the | Result: positive | Latency: 851.98ms
+2025-10-13 20:45:09,180 | [2025-10-13 20:45:08.281] Text: The twists were brilliant! I d | Result: positive | Latency: 900.55ms
+2025-10-13 20:45:09,261 | [2025-10-13 20:45:08.281] Text: The acting was strong, but the | Result: negative | Latency: 980.06ms
+2025-10-13 20:45:09,319 | [2025-10-13 20:45:08.282] Text: The director’s best work yet — | Result: positive | Latency: 1036.77ms
+2025-10-13 20:45:09,378 | [2025-10-13 20:45:08.283] Text: Loud, messy, and overlong. I c | Result: negative | Latency: 1096.54ms
+2025-10-13 20:45:09,449 | [2025-10-13 20:45:08.282] Text: The acting was strong, but the | Result: negative | Latency: 1166.59ms
+2025-10-13 20:45:09,499 | [2025-10-13 20:45:08.282] Text: The humor was forced, and most | Result: negative | Latency: 1217.55ms
+2025-10-13 20:45:09,573 | [2025-10-13 20:45:08.283] Text: A dull and uninspired remake t | Result: negative | Latency: 1289.99ms
+2025-10-13 20:45:09,630 | [2025-10-13 20:45:08.283] Text: The movie tried too hard to be | Result: negative | Latency: 1346.61ms
+2025-10-13 20:45:09,687 | [2025-10-13 20:45:08.284] Text: Loud, messy, and overlong. I c | Result: negative | Latency: 1403.70ms
+2025-10-13 20:45:09,741 | [2025-10-13 20:45:08.284] Text: Loud, messy, and overlong. I c | Result: negative | Latency: 1456.19ms
+2025-10-13 20:45:09,787 | [2025-10-13 20:45:08.284] Text: Beautiful cinematography but z | Result: positive | Latency: 1502.79ms
+2025-10-13 20:45:10,177 | [2025-10-13 20:45:09.789] Text: A dull and uninspired remake t | Result: negative | Latency: 387.74ms
+2025-10-13 20:45:10,238 | [2025-10-13 20:45:09.790] Text: Good ideas, but the execution  | Result: negative | Latency: 447.36ms
+2025-10-13 20:45:10,287 | [2025-10-13 20:45:09.792] Text: One of the worst films I’ve se | Result: negative | Latency: 494.55ms
+2025-10-13 20:45:10,357 | [2025-10-13 20:45:09.793] Text: A moving story told with hones | Result: positive | Latency: 563.69ms
+2025-10-13 20:45:10,422 | [2025-10-13 20:45:09.793] Text: The acting was strong, but the | Result: negative | Latency: 629.26ms
+2025-10-13 20:45:10,480 | [2025-10-13 20:45:09.794] Text: A complete mess from start to  | Result: negative | Latency: 686.15ms
+2025-10-13 20:45:10,531 | [2025-10-13 20:45:09.795] Text: It’s okay — not great, not ter | Result: negative | Latency: 735.80ms
+2025-10-13 20:45:10,574 | [2025-10-13 20:45:09.795] Text: Unexpectedly good! I went in w | Result: positive | Latency: 778.88ms
+2025-10-13 20:45:10,631 | [2025-10-13 20:45:09.796] Text: The director’s best work yet — | Result: positive | Latency: 834.78ms
+2025-10-13 20:45:10,694 | [2025-10-13 20:45:09.796] Text: The acting was strong, but the | Result: negative | Latency: 897.38ms
+2025-10-13 20:45:10,747 | [2025-10-13 20:45:09.797] Text: One of the worst films I’ve se | Result: negative | Latency: 949.17ms
+2025-10-13 20:45:10,831 | [2025-10-13 20:45:09.797] Text: Loved it! The chemistry betwee | Result: positive | Latency: 1034.20ms
+2025-10-13 20:45:10,889 | [2025-10-13 20:45:09.798] Text: A surprisingly emotional journ | Result: positive | Latency: 1090.38ms
+2025-10-13 20:45:10,953 | [2025-10-13 20:45:09.798] Text: Short, sweet, and hilarious. P | Result: positive | Latency: 1153.79ms
+2025-10-13 20:45:11,012 | [2025-10-13 20:45:09.800] Text: Incredible performances by the | Result: positive | Latency: 1212.03ms
+2025-10-13 20:45:11,076 | [2025-10-13 20:45:09.800] Text: Loved it! The chemistry betwee | Result: positive | Latency: 1275.73ms
+2025-10-13 20:45:11,163 | [2025-10-13 20:45:09.801] Text: Short, sweet, and hilarious. P | Result: positive | Latency: 1361.98ms
+2025-10-13 20:45:11,193 | [2025-10-13 20:45:09.801] Text: Honestly, I don’t get the hype | Result: positive | Latency: 1392.75ms
+2025-10-13 20:45:11,265 | [2025-10-13 20:45:09.802] Text: Short, sweet, and hilarious. P | Result: positive | Latency: 1463.54ms
+2025-10-13 20:45:11,326 | [2025-10-13 20:45:09.802] Text: The humor was forced, and most | Result: negative | Latency: 1524.42ms
+2025-10-13 20:45:11,661 | [2025-10-13 20:45:11.328] Text: Honestly, I don’t get the hype | Result: positive | Latency: 331.69ms
+2025-10-13 20:45:11,739 | [2025-10-13 20:45:11.328] Text: Great soundtrack, mediocre sto | Result: positive | Latency: 410.73ms
+2025-10-13 20:45:11,786 | [2025-10-13 20:45:11.328] Text: Predictable ending but still e | Result: positive | Latency: 457.71ms
+2025-10-13 20:45:11,840 | [2025-10-13 20:45:11.328] Text: Heartwarming and funny. Remind | Result: positive | Latency: 510.66ms
+2025-10-13 20:45:11,906 | [2025-10-13 20:45:11.328] Text: A moving story told with hones | Result: positive | Latency: 576.96ms
+2025-10-13 20:45:11,970 | [2025-10-13 20:45:11.328] Text: Visually stunning, with music  | Result: positive | Latency: 640.11ms
+2025-10-13 20:45:12,036 | [2025-10-13 20:45:11.330] Text: A dull and uninspired remake t | Result: negative | Latency: 705.96ms
+2025-10-13 20:45:12,090 | [2025-10-13 20:45:11.330] Text: Predictable ending but still e | Result: positive | Latency: 759.52ms
+2025-10-13 20:45:12,144 | [2025-10-13 20:45:11.330] Text: Predictable ending but still e | Result: positive | Latency: 814.53ms
+2025-10-13 20:45:12,206 | [2025-10-13 20:45:11.331] Text: Good ideas, but the execution  | Result: negative | Latency: 875.31ms
+2025-10-13 20:45:12,274 | [2025-10-13 20:45:11.330] Text: The acting was strong, but the | Result: negative | Latency: 944.24ms
+2025-10-13 20:45:12,364 | [2025-10-13 20:45:11.331] Text: Short, sweet, and hilarious. P | Result: positive | Latency: 1032.11ms
+2025-10-13 20:45:12,429 | [2025-10-13 20:45:11.331] Text: Predictable ending but still e | Result: positive | Latency: 1098.00ms
+2025-10-13 20:45:12,485 | [2025-10-13 20:45:11.331] Text: A surprisingly emotional journ | Result: positive | Latency: 1154.06ms
+2025-10-13 20:45:12,559 | [2025-10-13 20:45:11.332] Text: Cringe-worthy dialogue and woo | Result: negative | Latency: 1226.81ms
+2025-10-13 20:45:12,606 | [2025-10-13 20:45:11.332] Text: A moving story told with hones | Result: positive | Latency: 1273.90ms
+2025-10-13 20:45:12,657 | [2025-10-13 20:45:11.332] Text: The director’s best work yet — | Result: positive | Latency: 1325.13ms
+2025-10-13 20:45:12,712 | [2025-10-13 20:45:11.332] Text: The twists were brilliant! I d | Result: positive | Latency: 1379.44ms
+2025-10-13 20:45:12,782 | [2025-10-13 20:45:11.333] Text: A surprisingly emotional journ | Result: positive | Latency: 1448.96ms
+2025-10-13 20:45:12,834 | [2025-10-13 20:45:11.333] Text: Heartwarming and funny. Remind | Result: positive | Latency: 1501.32ms
+2025-10-13 20:45:13,186 | [2025-10-13 20:45:12.837] Text: Terrible script. Not even the  | Result: negative | Latency: 349.70ms
+2025-10-13 20:45:13,241 | [2025-10-13 20:45:12.838] Text: The twists were brilliant! I d | Result: positive | Latency: 404.16ms
+2025-10-13 20:45:13,308 | [2025-10-13 20:45:12.838] Text: A solid film with great charac | Result: positive | Latency: 471.06ms
+2025-10-13 20:45:13,382 | [2025-10-13 20:45:12.839] Text: Visually stunning, with music  | Result: positive | Latency: 542.68ms
+2025-10-13 20:45:13,437 | [2025-10-13 20:45:12.839] Text: A moving story told with hones | Result: positive | Latency: 597.79ms
+2025-10-13 20:45:13,488 | [2025-10-13 20:45:12.840] Text: The movie tried too hard to be | Result: negative | Latency: 647.98ms
+2025-10-13 20:45:13,566 | [2025-10-13 20:45:12.840] Text: Unexpectedly good! I went in w | Result: positive | Latency: 725.72ms
+2025-10-13 20:45:13,591 | [2025-10-13 20:45:12.841] Text: Predictable ending but still e | Result: positive | Latency: 750.01ms
+2025-10-13 20:45:13,693 | [2025-10-13 20:45:12.842] Text: Visually stunning, with music  | Result: positive | Latency: 851.33ms
+2025-10-13 20:45:13,704 | [2025-10-13 20:45:12.842] Text: One of the worst films I’ve se | Result: negative | Latency: 861.43ms
+2025-10-13 20:45:13,772 | [2025-10-13 20:45:12.843] Text: Short, sweet, and hilarious. P | Result: positive | Latency: 928.86ms
+2025-10-13 20:45:13,831 | [2025-10-13 20:45:12.843] Text: Loud, messy, and overlong. I c | Result: negative | Latency: 987.14ms
+2025-10-13 20:45:13,886 | [2025-10-13 20:45:12.845] Text: Loved it! The chemistry betwee | Result: positive | Latency: 1042.21ms
+2025-10-13 20:45:13,936 | [2025-10-13 20:45:12.845] Text: The movie tried too hard to be | Result: negative | Latency: 1090.50ms
+2025-10-13 20:45:14,002 | [2025-10-13 20:45:12.845] Text: A surprisingly emotional journ | Result: positive | Latency: 1156.20ms
+2025-10-13 20:45:14,065 | [2025-10-13 20:45:12.847] Text: A solid film with great charac | Result: positive | Latency: 1217.98ms
+2025-10-13 20:45:14,126 | [2025-10-13 20:45:12.848] Text: Loved it! The chemistry betwee | Result: positive | Latency: 1278.83ms
+2025-10-13 20:45:14,181 | [2025-10-13 20:45:12.848] Text: Unexpectedly good! I went in w | Result: positive | Latency: 1332.58ms
+2025-10-13 20:45:14,236 | [2025-10-13 20:45:12.849] Text: Incredible performances by the | Result: positive | Latency: 1387.08ms
+2025-10-13 20:45:14,303 | [2025-10-13 20:45:12.849] Text: Poorly edited and badly paced. | Result: negative | Latency: 1453.93ms
+2025-10-13 20:45:14,652 | [2025-10-13 20:45:14.306] Text: A flawed but fascinating film  | Result: positive | Latency: 346.67ms
+2025-10-13 20:45:14,704 | [2025-10-13 20:45:14.307] Text: One of the worst films I’ve se | Result: negative | Latency: 397.31ms
+2025-10-13 20:45:14,780 | [2025-10-13 20:45:14.307] Text: Poorly edited and badly paced. | Result: negative | Latency: 472.52ms
+2025-10-13 20:45:14,873 | [2025-10-13 20:45:14.307] Text: A surprisingly emotional journ | Result: positive | Latency: 564.49ms
+2025-10-13 20:45:14,898 | [2025-10-13 20:45:14.309] Text: An absolute masterpiece. Every | Result: positive | Latency: 588.69ms
+2025-10-13 20:45:14,963 | [2025-10-13 20:45:14.309] Text: Loud, messy, and overlong. I c | Result: negative | Latency: 653.85ms
+2025-10-13 20:45:15,012 | [2025-10-13 20:45:14.310] Text: An absolute masterpiece. Every | Result: positive | Latency: 702.58ms
+2025-10-13 20:45:15,080 | [2025-10-13 20:45:14.311] Text: An absolute masterpiece. Every | Result: positive | Latency: 769.25ms
+2025-10-13 20:45:15,138 | [2025-10-13 20:45:14.310] Text: A moving story told with hones | Result: positive | Latency: 828.57ms
+2025-10-13 20:45:15,194 | [2025-10-13 20:45:14.314] Text: Incredible performances by the | Result: positive | Latency: 880.03ms
+2025-10-13 20:45:15,246 | [2025-10-13 20:45:14.313] Text: Loud, messy, and overlong. I c | Result: negative | Latency: 932.13ms
+2025-10-13 20:45:15,296 | [2025-10-13 20:45:14.311] Text: The humor was forced, and most | Result: negative | Latency: 983.37ms
+2025-10-13 20:45:15,346 | [2025-10-13 20:45:14.315] Text: A complete mess from start to  | Result: negative | Latency: 1030.52ms
+2025-10-13 20:45:15,412 | [2025-10-13 20:45:14.313] Text: Loved it! The chemistry betwee | Result: positive | Latency: 1099.03ms
+2025-10-13 20:45:15,456 | [2025-10-13 20:45:14.318] Text: Unexpectedly good! I went in w | Result: positive | Latency: 1138.11ms
+2025-10-13 20:45:15,509 | [2025-10-13 20:45:14.318] Text: A complete mess from start to  | Result: negative | Latency: 1190.66ms
+2025-10-13 20:45:15,558 | [2025-10-13 20:45:14.316] Text: A complete mess from start to  | Result: negative | Latency: 1242.53ms
+2025-10-13 20:45:15,610 | [2025-10-13 20:45:14.316] Text: The director’s best work yet — | Result: positive | Latency: 1292.84ms
+2025-10-13 20:45:15,676 | [2025-10-13 20:45:14.317] Text: A dull and uninspired remake t | Result: negative | Latency: 1358.92ms
+2025-10-13 20:45:15,750 | [2025-10-13 20:45:14.314] Text: A solid film with great charac | Result: positive | Latency: 1435.55ms
+2025-10-13 20:45:16,100 | [2025-10-13 20:45:15.752] Text: Incredible performances by the | Result: positive | Latency: 347.95ms
+2025-10-13 20:45:16,151 | [2025-10-13 20:45:15.753] Text: Good ideas, but the execution  | Result: negative | Latency: 398.26ms
+2025-10-13 20:45:16,226 | [2025-10-13 20:45:15.754] Text: A dull and uninspired remake t | Result: negative | Latency: 471.73ms
+2025-10-13 20:45:16,280 | [2025-10-13 20:45:15.755] Text: The director’s best work yet — | Result: positive | Latency: 525.63ms
+2025-10-13 20:45:16,328 | [2025-10-13 20:45:15.755] Text: Predictable ending but still e | Result: positive | Latency: 573.19ms
+2025-10-13 20:45:16,397 | [2025-10-13 20:45:15.756] Text: A surprisingly emotional journ | Result: positive | Latency: 641.16ms
+2025-10-13 20:45:16,464 | [2025-10-13 20:45:15.757] Text: A flawed but fascinating film  | Result: positive | Latency: 706.83ms
+2025-10-13 20:45:16,530 | [2025-10-13 20:45:15.758] Text: Incredible performances by the | Result: positive | Latency: 772.49ms
+2025-10-13 20:45:16,581 | [2025-10-13 20:45:15.757] Text: Loud, messy, and overlong. I c | Result: negative | Latency: 823.18ms
+2025-10-13 20:45:16,638 | [2025-10-13 20:45:15.758] Text: Incredible performances by the | Result: positive | Latency: 878.86ms
+2025-10-13 20:45:16,694 | [2025-10-13 20:45:15.760] Text: Loud, messy, and overlong. I c | Result: negative | Latency: 934.10ms
+2025-10-13 20:45:16,781 | [2025-10-13 20:45:15.760] Text: A moving story told with hones | Result: positive | Latency: 1020.45ms
+2025-10-13 20:45:16,839 | [2025-10-13 20:45:15.761] Text: Great soundtrack, mediocre sto | Result: positive | Latency: 1078.18ms
+2025-10-13 20:45:16,897 | [2025-10-13 20:45:15.762] Text: Heartwarming and funny. Remind | Result: positive | Latency: 1135.32ms
+2025-10-13 20:45:16,952 | [2025-10-13 20:45:15.762] Text: Predictable ending but still e | Result: positive | Latency: 1189.93ms
+2025-10-13 20:45:17,005 | [2025-10-13 20:45:15.763] Text: One of the worst films I’ve se | Result: negative | Latency: 1241.22ms
+2025-10-13 20:45:17,080 | [2025-10-13 20:45:15.765] Text: A solid film with great charac | Result: positive | Latency: 1314.84ms
+2025-10-13 20:45:17,150 | [2025-10-13 20:45:15.764] Text: Poorly edited and badly paced. | Result: negative | Latency: 1386.43ms
+2025-10-13 20:45:17,194 | [2025-10-13 20:45:15.763] Text: The director’s best work yet — | Result: positive | Latency: 1430.97ms
+2025-10-13 20:45:17,264 | [2025-10-13 20:45:15.765] Text: Good ideas, but the execution  | Result: negative | Latency: 1498.50ms
+2025-10-13 20:45:17,614 | [2025-10-13 20:45:17.266] Text: Incredible performances by the | Result: positive | Latency: 348.60ms
+2025-10-13 20:45:17,672 | [2025-10-13 20:45:17.267] Text: The movie tried too hard to be | Result: negative | Latency: 403.76ms
+2025-10-13 20:45:17,736 | [2025-10-13 20:45:17.267] Text: Poorly edited and badly paced. | Result: negative | Latency: 469.56ms
+2025-10-13 20:45:17,805 | [2025-10-13 20:45:17.268] Text: A moving story told with hones | Result: positive | Latency: 537.04ms
+2025-10-13 20:45:17,870 | [2025-10-13 20:45:17.268] Text: The acting was strong, but the | Result: negative | Latency: 601.13ms
+2025-10-13 20:45:17,927 | [2025-10-13 20:45:17.268] Text: Incredible performances by the | Result: positive | Latency: 657.32ms
+2025-10-13 20:45:17,990 | [2025-10-13 20:45:17.271] Text: The director’s best work yet — | Result: positive | Latency: 719.83ms
+2025-10-13 20:45:18,044 | [2025-10-13 20:45:17.270] Text: Visually stunning, with music  | Result: positive | Latency: 773.99ms
+2025-10-13 20:45:18,111 | [2025-10-13 20:45:17.271] Text: A flawed but fascinating film  | Result: positive | Latency: 840.32ms
+2025-10-13 20:45:18,186 | [2025-10-13 20:45:17.272] Text: A dull and uninspired remake t | Result: negative | Latency: 914.78ms
+2025-10-13 20:45:18,250 | [2025-10-13 20:45:17.273] Text: A surprisingly emotional journ | Result: positive | Latency: 977.22ms
+2025-10-13 20:45:18,328 | [2025-10-13 20:45:17.272] Text: Visually stunning, with music  | Result: positive | Latency: 1055.32ms
+2025-10-13 20:45:18,383 | [2025-10-13 20:45:17.274] Text: An absolute masterpiece. Every | Result: positive | Latency: 1108.57ms
+2025-10-13 20:45:18,463 | [2025-10-13 20:45:17.274] Text: Great soundtrack, mediocre sto | Result: positive | Latency: 1189.47ms
+2025-10-13 20:45:18,526 | [2025-10-13 20:45:17.278] Text: The acting was strong, but the | Result: negative | Latency: 1248.68ms
+2025-10-13 20:45:18,575 | [2025-10-13 20:45:17.275] Text: Cringe-worthy dialogue and woo | Result: negative | Latency: 1299.79ms
+2025-10-13 20:45:18,631 | [2025-10-13 20:45:17.276] Text: Beautiful cinematography but z | Result: positive | Latency: 1354.70ms
+2025-10-13 20:45:18,675 | [2025-10-13 20:45:17.275] Text: The movie tried too hard to be | Result: negative | Latency: 1398.99ms
+2025-10-13 20:45:18,739 | [2025-10-13 20:45:17.276] Text: Poorly edited and badly paced. | Result: negative | Latency: 1462.52ms
+2025-10-13 20:45:18,809 | [2025-10-13 20:45:17.278] Text: A moving story told with hones | Result: positive | Latency: 1530.60ms
+2025-10-13 20:45:19,163 | [2025-10-13 20:45:18.812] Text: Poorly edited and badly paced. | Result: negative | Latency: 351.54ms
+2025-10-13 20:45:19,224 | [2025-10-13 20:45:18.814] Text: Loud, messy, and overlong. I c | Result: negative | Latency: 409.45ms
+2025-10-13 20:45:19,282 | [2025-10-13 20:45:18.813] Text: A solid film with great charac | Result: positive | Latency: 469.18ms
+2025-10-13 20:45:19,332 | [2025-10-13 20:45:18.813] Text: Unexpectedly good! I went in w | Result: positive | Latency: 517.75ms
+2025-10-13 20:45:19,382 | [2025-10-13 20:45:18.816] Text: The director’s best work yet — | Result: positive | Latency: 566.55ms
+2025-10-13 20:45:19,450 | [2025-10-13 20:45:18.815] Text: The acting was strong, but the | Result: negative | Latency: 635.41ms
+2025-10-13 20:45:19,547 | [2025-10-13 20:45:18.816] Text: Short, sweet, and hilarious. P | Result: positive | Latency: 731.35ms
+2025-10-13 20:45:19,581 | [2025-10-13 20:45:18.817] Text: A flawed but fascinating film  | Result: positive | Latency: 764.21ms
+2025-10-13 20:45:19,627 | [2025-10-13 20:45:18.818] Text: Beautiful cinematography but z | Result: positive | Latency: 810.16ms
+2025-10-13 20:45:19,677 | [2025-10-13 20:45:18.818] Text: The humor was forced, and most | Result: negative | Latency: 858.29ms
+2025-10-13 20:45:19,727 | [2025-10-13 20:45:18.819] Text: It’s okay — not great, not ter | Result: negative | Latency: 908.46ms
+2025-10-13 20:45:19,791 | [2025-10-13 20:45:18.819] Text: Visually stunning, with music  | Result: positive | Latency: 971.17ms
+2025-10-13 20:45:19,842 | [2025-10-13 20:45:18.820] Text: A complete mess from start to  | Result: negative | Latency: 1022.16ms
+2025-10-13 20:45:19,892 | [2025-10-13 20:45:18.820] Text: The movie tried too hard to be | Result: negative | Latency: 1071.66ms
+2025-10-13 20:45:19,956 | [2025-10-13 20:45:18.822] Text: Terrible script. Not even the  | Result: negative | Latency: 1135.16ms
+2025-10-13 20:45:20,030 | [2025-10-13 20:45:18.820] Text: Cringe-worthy dialogue and woo | Result: negative | Latency: 1209.66ms
+2025-10-13 20:45:20,081 | [2025-10-13 20:45:18.822] Text: Short, sweet, and hilarious. P | Result: positive | Latency: 1259.35ms
+2025-10-13 20:45:20,129 | [2025-10-13 20:45:18.822] Text: A complete mess from start to  | Result: negative | Latency: 1306.60ms
+2025-10-13 20:45:20,182 | [2025-10-13 20:45:18.824] Text: The twists were brilliant! I d | Result: positive | Latency: 1358.90ms
+2025-10-13 20:45:20,242 | [2025-10-13 20:45:18.823] Text: Terrible script. Not even the  | Result: negative | Latency: 1419.29ms
+2025-10-13 20:45:20,581 | [2025-10-13 20:45:20.244] Text: Unexpectedly good! I went in w | Result: positive | Latency: 336.45ms
+2025-10-13 20:45:20,641 | [2025-10-13 20:45:20.246] Text: The acting was strong, but the | Result: negative | Latency: 394.47ms
+2025-10-13 20:45:20,704 | [2025-10-13 20:45:20.245] Text: A surprisingly emotional journ | Result: positive | Latency: 457.80ms
+2025-10-13 20:45:20,758 | [2025-10-13 20:45:20.247] Text: Pretty boring, I fell asleep h | Result: negative | Latency: 510.95ms
+2025-10-13 20:45:20,827 | [2025-10-13 20:45:20.248] Text: Visually stunning, with music  | Result: positive | Latency: 578.87ms
+2025-10-13 20:45:20,888 | [2025-10-13 20:45:20.247] Text: A moving story told with hones | Result: positive | Latency: 640.17ms
+2025-10-13 20:45:20,954 | [2025-10-13 20:45:20.248] Text: A solid film with great charac | Result: positive | Latency: 705.68ms
+2025-10-13 20:45:21,019 | [2025-10-13 20:45:20.251] Text: Terrible script. Not even the  | Result: negative | Latency: 767.88ms
+2025-10-13 20:45:21,082 | [2025-10-13 20:45:20.250] Text: Loved it! The chemistry betwee | Result: positive | Latency: 832.43ms
+2025-10-13 20:45:21,148 | [2025-10-13 20:45:20.252] Text: A dull and uninspired remake t | Result: negative | Latency: 896.94ms
+2025-10-13 20:45:21,208 | [2025-10-13 20:45:20.252] Text: The acting was strong, but the | Result: negative | Latency: 957.77ms
+2025-10-13 20:45:21,275 | [2025-10-13 20:45:20.251] Text: An absolute masterpiece. Every | Result: positive | Latency: 1024.61ms
+2025-10-13 20:45:21,339 | [2025-10-13 20:45:20.253] Text: An absolute masterpiece. Every | Result: positive | Latency: 1086.32ms
+2025-10-13 20:45:21,401 | [2025-10-13 20:45:20.254] Text: Great soundtrack, mediocre sto | Result: positive | Latency: 1148.10ms
+2025-10-13 20:45:21,464 | [2025-10-13 20:45:20.254] Text: Loved it! The chemistry betwee | Result: positive | Latency: 1209.90ms
+2025-10-13 20:45:21,513 | [2025-10-13 20:45:20.254] Text: Unexpectedly good! I went in w | Result: positive | Latency: 1259.46ms
+2025-10-13 20:45:21,562 | [2025-10-13 20:45:20.255] Text: Honestly, I don’t get the hype | Result: positive | Latency: 1306.98ms
+2025-10-13 20:45:21,628 | [2025-10-13 20:45:20.256] Text: A solid film with great charac | Result: positive | Latency: 1372.76ms
+2025-10-13 20:45:21,681 | [2025-10-13 20:45:20.255] Text: The twists were brilliant! I d | Result: positive | Latency: 1426.61ms
+2025-10-13 20:45:21,742 | [2025-10-13 20:45:20.256] Text: The acting was strong, but the | Result: negative | Latency: 1485.84ms
+2025-10-13 20:45:22,089 | [2025-10-13 20:45:21.744] Text: An absolute masterpiece. Every | Result: positive | Latency: 345.20ms
+2025-10-13 20:45:22,148 | [2025-10-13 20:45:21.745] Text: Heartwarming and funny. Remind | Result: positive | Latency: 402.56ms
+2025-10-13 20:45:22,213 | [2025-10-13 20:45:21.746] Text: Poorly edited and badly paced. | Result: negative | Latency: 466.15ms
+2025-10-13 20:45:22,282 | [2025-10-13 20:45:21.746] Text: Great soundtrack, mediocre sto | Result: positive | Latency: 536.39ms
+2025-10-13 20:45:22,348 | [2025-10-13 20:45:21.747] Text: A dull and uninspired remake t | Result: negative | Latency: 600.37ms
+2025-10-13 20:45:22,398 | [2025-10-13 20:45:21.748] Text: Honestly, I don’t get the hype | Result: positive | Latency: 650.26ms
+2025-10-13 20:45:22,465 | [2025-10-13 20:45:21.748] Text: Terrible script. Not even the  | Result: negative | Latency: 716.28ms
+2025-10-13 20:45:22,529 | [2025-10-13 20:45:21.748] Text: A solid film with great charac | Result: positive | Latency: 779.23ms
+2025-10-13 20:45:22,577 | [2025-10-13 20:45:21.750] Text: Beautiful cinematography but z | Result: positive | Latency: 826.93ms
+2025-10-13 20:45:22,626 | [2025-10-13 20:45:21.750] Text: Unexpectedly good! I went in w | Result: positive | Latency: 876.20ms
+2025-10-13 20:45:22,680 | [2025-10-13 20:45:21.751] Text: It’s okay — not great, not ter | Result: negative | Latency: 928.84ms
+2025-10-13 20:45:22,735 | [2025-10-13 20:45:21.752] Text: The movie tried too hard to be | Result: negative | Latency: 982.32ms
+2025-10-13 20:45:22,786 | [2025-10-13 20:45:21.753] Text: Heartwarming and funny. Remind | Result: positive | Latency: 1033.02ms
+2025-10-13 20:45:22,848 | [2025-10-13 20:45:21.752] Text: Pretty boring, I fell asleep h | Result: negative | Latency: 1095.35ms
+2025-10-13 20:45:22,911 | [2025-10-13 20:45:21.754] Text: An absolute masterpiece. Every | Result: positive | Latency: 1157.73ms
+2025-10-13 20:45:22,968 | [2025-10-13 20:45:21.754] Text: The humor was forced, and most | Result: negative | Latency: 1215.10ms
+2025-10-13 20:45:23,027 | [2025-10-13 20:45:21.755] Text: Predictable ending but still e | Result: positive | Latency: 1272.12ms
+2025-10-13 20:45:23,093 | [2025-10-13 20:45:21.755] Text: Terrible script. Not even the  | Result: negative | Latency: 1338.76ms
+2025-10-13 20:45:23,153 | [2025-10-13 20:45:21.756] Text: Heartwarming and funny. Remind | Result: positive | Latency: 1396.88ms
+2025-10-13 20:45:23,200 | [2025-10-13 20:45:21.757] Text: The twists were brilliant! I d | Result: positive | Latency: 1442.54ms
+2025-10-13 20:45:23,549 | [2025-10-13 20:45:23.203] Text: A flawed but fascinating film  | Result: positive | Latency: 346.28ms
+2025-10-13 20:45:23,614 | [2025-10-13 20:45:23.201] Text: A solid film with great charac | Result: positive | Latency: 412.37ms
+2025-10-13 20:45:23,681 | [2025-10-13 20:45:23.202] Text: Cringe-worthy dialogue and woo | Result: negative | Latency: 478.69ms
+2025-10-13 20:45:23,742 | [2025-10-13 20:45:23.203] Text: A flawed but fascinating film  | Result: positive | Latency: 538.02ms
+2025-10-13 20:45:23,791 | [2025-10-13 20:45:23.204] Text: Cringe-worthy dialogue and woo | Result: negative | Latency: 585.92ms
+2025-10-13 20:45:23,852 | [2025-10-13 20:45:23.205] Text: Terrible script. Not even the  | Result: negative | Latency: 647.61ms
+2025-10-13 20:45:23,933 | [2025-10-13 20:45:23.205] Text: A moving story told with hones | Result: positive | Latency: 727.41ms
+2025-10-13 20:45:23,962 | [2025-10-13 20:45:23.206] Text: Beautiful cinematography but z | Result: positive | Latency: 755.19ms
+2025-10-13 20:45:24,013 | [2025-10-13 20:45:23.208] Text: Heartwarming and funny. Remind | Result: positive | Latency: 806.22ms
+2025-10-13 20:45:24,068 | [2025-10-13 20:45:23.206] Text: A complete mess from start to  | Result: negative | Latency: 861.64ms
+2025-10-13 20:45:24,128 | [2025-10-13 20:45:23.208] Text: Loud, messy, and overlong. I c | Result: negative | Latency: 920.09ms
+2025-10-13 20:45:24,184 | [2025-10-13 20:45:23.209] Text: A flawed but fascinating film  | Result: positive | Latency: 975.85ms
+2025-10-13 20:45:24,248 | [2025-10-13 20:45:23.210] Text: A dull and uninspired remake t | Result: negative | Latency: 1037.63ms
+2025-10-13 20:45:24,327 | [2025-10-13 20:45:23.210] Text: A moving story told with hones | Result: positive | Latency: 1116.65ms
+2025-10-13 20:45:24,380 | [2025-10-13 20:45:23.212] Text: Short, sweet, and hilarious. P | Result: positive | Latency: 1167.13ms
+2025-10-13 20:45:24,449 | [2025-10-13 20:45:23.214] Text: Terrible script. Not even the  | Result: negative | Latency: 1234.42ms
+2025-10-13 20:45:24,498 | [2025-10-13 20:45:23.211] Text: Honestly, I don’t get the hype | Result: positive | Latency: 1286.20ms
+2025-10-13 20:45:24,551 | [2025-10-13 20:45:23.212] Text: Heartwarming and funny. Remind | Result: positive | Latency: 1339.37ms
+2025-10-13 20:45:24,600 | [2025-10-13 20:45:23.214] Text: A complete mess from start to  | Result: negative | Latency: 1386.20ms
+2025-10-13 20:45:24,652 | [2025-10-13 20:45:23.213] Text: One of the worst films I’ve se | Result: negative | Latency: 1439.32ms
