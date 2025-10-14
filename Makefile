@@ -1,6 +1,6 @@
 install:
 	pip install --upgrade pip &&\
-	pip install --requirements.txt
+	pip install -r requirements.txt
 
 test:
 	pytest -v
