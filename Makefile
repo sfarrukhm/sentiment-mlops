@@ -12,7 +12,7 @@ format:
 lint:
 	pylint --disable=R,C, app/serve.py
 
-all: install lint format
+all: install lint test format
 
 		
 

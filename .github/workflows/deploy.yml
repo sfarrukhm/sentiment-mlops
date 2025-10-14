@@ -14,9 +14,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        
-      - name: Install pytest
-        run: pip install pytest
+
+      - name: Install dependencies
+        run: make install
 
       - name: Run tests
         run: make test
