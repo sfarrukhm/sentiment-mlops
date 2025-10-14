@@ -11,8 +11,8 @@ from tqdm import tqdm  # progress bar
 # Config
 # -----------------------------
 api_url = "http://52.13.56.115:8000/predict"
-concurrent_users = 20
-total_requests = 300
+concurrent_users = 100
+total_requests = 5000
 
 LOG_DIR = "logs"
 os.makedirs(LOG_DIR, exist_ok=True)
