@@ -2,7 +2,7 @@ from fastapi import FastAPI, Request, Query
 from app.utils import load_model, predict_text
 import time
 import logging
-
+import os
 
 
 # -----------------------------
