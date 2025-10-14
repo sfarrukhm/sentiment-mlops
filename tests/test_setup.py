@@ -2,9 +2,6 @@ import pytest
 from fastapi.testclient import TestClient
 from app.serve import app
 
-import sys, os
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-
 # Initialize test client
 client = TestClient(app)
 
