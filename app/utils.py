@@ -21,7 +21,7 @@ def load_model(version: str = "v2"):
     """
     Loads a model version from S3.
     - v1: full Hugging Face model (config + tokenizer + weights)
-    - v2: quantized PyTorch model (.pth)
+    - v2: quantized PyTorch model (entire model saved)
     """
     logger.info(f"🔍 Loading model version: {version}")
     s3 = boto3.client("s3")
@@ -30,7 +30,6 @@ def load_model(version: str = "v2"):
     os.makedirs(local_model_path, exist_ok=True)
 
     if version == "v1":
-        # Download all required files from S3 if not already cached
         files = [
             "config.json",
             "model.safetensors",
@@ -48,19 +47,13 @@ def load_model(version: str = "v2"):
         model = DistilBertForSequenceClassification.from_pretrained(local_model_path)
 
     elif version == "v2":
-        # v2: quantized model (state dict only)
-        local_quant_path = os.path.join(local_model_path, "quantized_model.pth")
-
+        local_quant_path = os.path.join(local_model_path, "quantized_model_full.pth")
         if not os.path.exists(local_quant_path):
-            logger.info("📥 Downloading quantized model from S3...")
-            download_from_s3(s3, f"{S3_BASE_PATH}/{version}/quantized_model.pth", local_quant_path)
+            logger.info("📥 Downloading full quantized model from S3...")
+            download_from_s3(s3, f"{S3_BASE_PATH}/{version}/quantized_model_full.pth", local_quant_path)
 
-        logger.info("⚙️ Loading DistilBERT config and applying quantized weights...")
-        config = DistilBertConfig.from_pretrained("distilbert-base-uncased", num_labels=2)
-        model = DistilBertForSequenceClassification(config)
-        state_dict = torch.load(local_quant_path, map_location="cpu")
-        model.load_state_dict(state_dict)
-
+        logger.info("⚙️ Loading full quantized DistilBERT model...")
+        model = torch.load(local_quant_path, map_location="cpu")
         tokenizer = DistilBertTokenizer.from_pretrained("distilbert-base-uncased")
 
     else:
@@ -69,6 +62,7 @@ def load_model(version: str = "v2"):
     model.eval()
     logger.info(f"✅ Model {version} loaded and set to eval mode.")
     return model, tokenizer, version
+
 
 
 
