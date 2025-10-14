@@ -2,7 +2,8 @@ install:
 	pip install --upgrade pip &&\
 	pip install --requirements.txt
 
-# test:
+test:
+	pytest -v
 
 format:
 	black **/*.py

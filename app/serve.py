@@ -2,7 +2,10 @@ from fastapi import FastAPI, Request, Query
 from app.utils import load_model, predict_text
 import time
 import logging
-import os
+
+import sys, os
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+
 
 # -----------------------------
 # Logging Setup
