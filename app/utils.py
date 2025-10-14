@@ -69,3 +69,29 @@ def load_model(version: str = "v2"):
     model.eval()
     logger.info(f"✅ Model {version} loaded and set to eval mode.")
     return model, tokenizer, version
+
+
+
+def predict_text(model, tokenizer, text: str):
+    """Run inference with automatic handling for both model types."""
+    try:
+        if tokenizer:  # Hugging Face model or quantized with tokenizer
+            inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True)
+            with torch.no_grad():
+                outputs = model(**inputs)
+                logits = outputs.logits
+        else:  # Custom quantized model expecting raw input tensor
+            if isinstance(text, str):
+                # naive fallback if no tokenizer exists
+                input_tensor = torch.tensor([[ord(c) % 256 for c in text[:256]]])
+                with torch.no_grad():
+                    logits = model(input_tensor.float())
+            else:
+                logits = model(text)
+
+        pred = torch.argmax(logits, dim=1).item()
+        return "positive" if pred == 1 else "negative"
+
+    except Exception as e:
+        logger.error(f"Prediction error: {e}")
+        return "error"
