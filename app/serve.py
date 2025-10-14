@@ -3,8 +3,6 @@ from app.utils import load_model, predict_text
 import time
 import logging
 
-import sys, os
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
 
 # -----------------------------
