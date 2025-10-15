@@ -53,7 +53,12 @@ def load_model(version: str = "v2"):
             download_from_s3(s3, f"{S3_BASE_PATH}/{version}/quantized_model.pth", local_quant_path)
 
         logger.info("⚙️ Loading full quantized DistilBERT model...")
-        model = torch.load(local_quant_path, map_location="cpu")
+        # initialize model with same architecture
+        model = DistilBertForSequenceClassification.from_pretrained("distilbert-base-uncased")
+        # load weights
+        state_dict = torch.load(local_quant_path, map_location="cpu")
+        model.load_state_dict(state_dict)
+        
         tokenizer = DistilBertTokenizer.from_pretrained("distilbert-base-uncased")
 
     else:
