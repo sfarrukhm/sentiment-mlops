@@ -47,10 +47,10 @@ def load_model(version: str = "v2"):
         model = DistilBertForSequenceClassification.from_pretrained(local_model_path)
 
     elif version == "v2":
-        local_quant_path = os.path.join(local_model_path, "quantized_model_full.pth")
+        local_quant_path = os.path.join(local_model_path, "quantized_model.pth")
         if not os.path.exists(local_quant_path):
             logger.info("📥 Downloading full quantized model from S3...")
-            download_from_s3(s3, f"{S3_BASE_PATH}/{version}/quantized_model_full.pth", local_quant_path)
+            download_from_s3(s3, f"{S3_BASE_PATH}/{version}/quantized_model.pth", local_quant_path)
 
         logger.info("⚙️ Loading full quantized DistilBERT model...")
         model = torch.load(local_quant_path, map_location="cpu")
