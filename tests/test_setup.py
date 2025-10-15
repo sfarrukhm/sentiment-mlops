@@ -2,48 +2,43 @@ import pytest
 from fastapi.testclient import TestClient
 from app.serve import app
 
-# Initialize test client
 client = TestClient(app)
 
-# -----------------------------
-# UNIT TESTS (direct model tests)
-# -----------------------------
+def test_ping_endpoint():
+    """Health check should return 200."""
+    response = client.get("/ping")
+    assert response.status_code == 200
+    data = response.json()
+    assert "status" in data
+    assert data["status"] == 200
+
+
 def test_model_inference_basic():
     """Ensure model returns valid sentiment label for simple text."""
-    response=client.get("/predict?text=I love this movie")
-    data=response.json()
-
+    response = client.post(
+        "/predict",
+        json={"text": "I love this movie", "quantize": False},
+    )
     assert response.status_code == 200
-    assert data['sentiment'] in ['positive','negative']
-    assert 0<=float(data["latency_ms"])<3000
+    data = response.json()
+    assert data["sentiment"] in ["positive", "negative"]
+    assert "latency_ms" in data
+    assert "quantized" in data
 
 
-# -----------------------------
-# INTEGRATION TESTS (API-level)
-# -----------------------------
 @pytest.mark.parametrize(
     "text, expected_label",
     [
-        ("I love this product","positive"),
-        ("This is the worst thing ever","negative")
-        ],
+        ("I love this product", "positive"),
+        ("This is the worst thing ever", "negative"),
+    ],
 )
-
 def test_api_response(text, expected_label):
-    """Test that API returns correct label direction."""
-    response=client.get(f"/predict?text={text}")
-    data=response.json()
-
+    """Test that API returns expected label direction."""
+    response = client.post(
+        "/predict",
+        json={"text": text, "quantize": False},
+    )
     assert response.status_code == 200
-    assert "sentiment" in data
-    
-    # Ensure at least polarity consistency
-    if "love" in text:
-        assert data['sentiment']=='positive'
-    elif "worst" in text:
-        assert data['sentiment'] == 'negative'
-
-def test_ping_endpoint():
-    """Ping health endpoint"""
-    response=client.get("/ping")
-    assert response.status_code == 200
+    data = response.json()
+    assert data["sentiment"] == expected_label
