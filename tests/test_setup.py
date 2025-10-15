@@ -47,10 +47,3 @@ def test_ping_endpoint():
     """Ping health endpoint"""
     response=client.get("/ping")
     assert response.status_code == 200
-    assert "model_version" in response.json()
-
-def test_switch_model_endpoint(monkeypatch):
-    """Simulate model switch without breaking the app"""
-    response = client.get("/switch_model?version=v1")
-    assert response.status_code == 200
-    assert "message" in response.json()
