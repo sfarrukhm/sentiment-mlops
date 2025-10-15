@@ -1,9 +1,9 @@
-from fastapi import FastAPI, Request, Query
+from fastapi import FastAPI, Request, Query as FastQuery
+from pydantic import BaseModel
 from app.utils import load_model, predict_text
 import time
 import logging
 import os
-
 
 # -----------------------------
 # Logging Setup
@@ -26,45 +26,53 @@ logger.addHandler(console_handler)
 # -----------------------------
 # Initialize app and model
 # -----------------------------
-app = FastAPI(title="Sentiment Inference API with Versioning")
+app = FastAPI(title="Sentiment Inference API")
 
-model, tokenizer, current_version = load_model()
+# Load the base (non-quantized) model at startup
+model, tokenizer, quantized = load_model(quantize=False)
+
+
+class PredictRequest(BaseModel):
+    text: str
+    quantize: bool = False
+
 
 @app.get("/ping")
 def ping():
-    return {"status": 200, "model_version": current_version}
+    """Health check endpoint."""
+    return {"status": 200, "quantized": quantized}
+
 
 # -----------------------------
 # Prediction Endpoint
 # -----------------------------
-@app.get("/predict")
-async def predict(request: Request, text: str = Query(...)):
-    """Run sentiment prediction."""
+@app.post("/predict")
+async def predict(request: Request, body: PredictRequest):
+    """
+    Run sentiment prediction.
+    If `quantize=True`, quantizes the model on the fly before inference.
+    """
     start_time = time.time()
-    result = predict_text(model, tokenizer, text)
-    latency = (time.time() - start_time) * 1000  # ms
+
+    global model, tokenizer, quantized
+
+    # Handle quantization dynamically if requested
+    if body.quantize != quantized:
+        model, tokenizer, quantized = load_model(quantize=body.quantize)
+        logger.info(f"⚙️ Switched quantization: quantize={quantized}")
+
+    # Run prediction
+    result = predict_text(model, tokenizer, body.text)
+    latency = (time.time() - start_time) * 1000  # in ms
 
     client_ip = request.client.host
     logger.info(
-        f"Client: {client_ip} | Version: {current_version} | Text: {text[:60]} | Latency: {latency:.2f} ms | Result: {result}"
+        f"Client: {client_ip} | Quantized: {quantized} | Text: {body.text[:60]} | "
+        f"Latency: {latency:.2f} ms | Result: {result}"
     )
 
-    return {"sentiment": result, "latency_ms": f"{latency:.2f}", "model_version": current_version}
-
-# -----------------------------
-# Model Switch Endpoint
-# -----------------------------
-@app.post("/switch_model")
-def switch_model(version: str):
-    """Hot-swap model version without restarting the API."""
-    global model, tokenizer, current_version
-
-    try:
-        new_model, new_tokenizer, loaded_version = load_model(version)
-        model, tokenizer, current_version = new_model, new_tokenizer, loaded_version
-        logger.info(f"✅ Switched to model version: {current_version}")
-        return {"message": f"Model switched to {current_version}"}
-    except Exception as e:
-        logger.error(f"❌ Model switch failed: {e}")
-        return {"error": str(e)}
-
+    return {
+        "sentiment": result,
+        "latency_ms": f"{latency:.2f}",
+        "quantized": quantized,
+    }

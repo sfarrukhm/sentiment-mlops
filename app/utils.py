@@ -2,12 +2,13 @@ import os
 import torch
 import logging
 import boto3
-from transformers import DistilBertTokenizer, DistilBertForSequenceClassification, DistilBertConfig
+from transformers import DistilBertTokenizer, DistilBertForSequenceClassification
+from torch.ao.quantization import quantize_dynamic
 
 logger = logging.getLogger(__name__)
 
 S3_BUCKET = "mlops-s3-20251005"
-S3_BASE_PATH = "distilbert-imdb"
+S3_BASE_PATH = "distilbert-imdb/v1"  # always load fine-tuned model from v1 path
 LOCAL_MODEL_DIR = os.path.join(os.path.dirname(__file__), "../models")
 
 
@@ -17,76 +18,55 @@ def download_from_s3(s3_client, s3_path, local_path):
     s3_client.download_file(S3_BUCKET, s3_path, local_path)
 
 
-def load_model(version: str = "v2"):
+def load_model(quantize: bool = False):
     """
-    Loads a model version from S3.
-    - v1: full Hugging Face model (config + tokenizer + weights)
-    - v2: quantized PyTorch model (entire model saved)
+    Loads the fine-tuned DistilBERT model from S3.
+    If `quantize=True`, applies dynamic quantization for faster CPU inference.
     """
-    logger.info(f"🔍 Loading model version: {version}")
+    logger.info(f"🔍 Loading fine-tuned DistilBERT model (quantize={quantize})")
     s3 = boto3.client("s3")
 
-    local_model_path = os.path.join(LOCAL_MODEL_DIR, version)
+    local_model_path = os.path.join(LOCAL_MODEL_DIR, "v1")
     os.makedirs(local_model_path, exist_ok=True)
 
-    if version == "v1":
-        files = [
-            "config.json",
-            "model.safetensors",
-            "special_tokens_map.json",
-            "tokenizer.json",
-            "tokenizer_config.json",
-            "vocab.txt",
-        ]
-        for f in files:
-            local_file = os.path.join(local_model_path, f)
-            if not os.path.exists(local_file):
-                download_from_s3(s3, f"{S3_BASE_PATH}/{version}/{f}", local_file)
+    # Model files to fetch if missing
+    files = [
+        "config.json",
+        "model.safetensors",
+        "special_tokens_map.json",
+        "tokenizer.json",
+        "tokenizer_config.json",
+        "vocab.txt",
+    ]
 
-        tokenizer = DistilBertTokenizer.from_pretrained(local_model_path)
-        model = DistilBertForSequenceClassification.from_pretrained(local_model_path)
+    for f in files:
+        local_file = os.path.join(local_model_path, f)
+        if not os.path.exists(local_file):
+            logger.info(f"📥 Downloading {f} from S3...")
+            download_from_s3(s3, f"{S3_BASE_PATH}/{f}", local_file)
 
-    elif version == "v2":
-        local_quant_path = os.path.join(local_model_path, "quantized_model.pth")
-        if not os.path.exists(local_quant_path):
-            logger.info("📥 Downloading full quantized model from S3...")
-            download_from_s3(s3, f"{S3_BASE_PATH}/{version}/quantized_model.pth", local_quant_path)
+    # Load tokenizer + base fine-tuned model
+    tokenizer = DistilBertTokenizer.from_pretrained(local_model_path)
+    model = DistilBertForSequenceClassification.from_pretrained(local_model_path)
 
-        logger.info("⚙️ Loading full quantized DistilBERT model...")
-        # initialize model with same architecture
-        model = DistilBertForSequenceClassification.from_pretrained("distilbert-base-uncased")
-        # load weights
-        state_dict = torch.load(local_quant_path, map_location="cpu")
-        model.load_state_dict(state_dict)
-        
-        tokenizer = DistilBertTokenizer.from_pretrained("distilbert-base-uncased")
-
-    else:
-        raise ValueError(f"Unknown model version: {version}")
+    # Optionally apply quantization
+    if quantize:
+        logger.info("⚙️ Applying dynamic quantization for inference...")
+        model = quantize_dynamic(model, {torch.nn.Linear}, dtype=torch.qint8)
+        logger.info("✅ Quantized model ready.")
 
     model.eval()
-    logger.info(f"✅ Model {version} loaded and set to eval mode.")
-    return model, tokenizer, version
-
-
+    logger.info("✅ Model loaded and set to eval mode.")
+    return model, tokenizer, quantize
 
 
 def predict_text(model, tokenizer, text: str):
-    """Run inference with automatic handling for both model types."""
+    """Run inference on text using the provided model and tokenizer."""
     try:
-        if tokenizer:  # Hugging Face model or quantized with tokenizer
-            inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True)
-            with torch.no_grad():
-                outputs = model(**inputs)
-                logits = outputs.logits
-        else:  # Custom quantized model expecting raw input tensor
-            if isinstance(text, str):
-                # naive fallback if no tokenizer exists
-                input_tensor = torch.tensor([[ord(c) % 256 for c in text[:256]]])
-                with torch.no_grad():
-                    logits = model(input_tensor.float())
-            else:
-                logits = model(text)
+        inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True)
+        with torch.no_grad():
+            outputs = model(**inputs)
+            logits = outputs.logits
 
         pred = torch.argmax(logits, dim=1).item()
         return "positive" if pred == 1 else "negative"
