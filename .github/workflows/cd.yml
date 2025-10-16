@@ -1,18 +1,33 @@
 name: Continuous Deployment
 
 on:
+  # 1️⃣ Automatically trigger after CI passes (only for main)
   workflow_run:
     workflows: ["Continuous Integration"]
     types:
       - completed
     branches:
       - main
-      - 'feature/*'
-  workflow_dispatch:  # allows manual deploys
+
+  # 2️⃣ Fallback: trigger on push (for non-main or if CI doesn’t exist)
+  push:
+    branches:
+      - main
+      - feature/**   # optional — allow testing on feature branches
+      # - dev          # optional — allow dev environment deploys
+
+  # 3️⃣ Manual trigger anytime
+  workflow_dispatch:
 
 jobs:
   deploy:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    # Only run auto-deploy if CI passed OR triggered manually/push
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      github.event_name == 'push' ||
+      (github.event_name == 'workflow_run' &&
+       github.event.workflow_run.conclusion == 'success')
+
     runs-on: ubuntu-latest
 
     steps:
