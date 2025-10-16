@@ -1,7 +1,6 @@
 name: Continuous Deployment
 
 on:
-  # 1️⃣ Automatically trigger after CI passes (only for main)
   workflow_run:
     workflows: ["Continuous Integration"]
     types:
@@ -9,19 +8,16 @@ on:
     branches:
       - main
 
-  # 2️⃣ Fallback: trigger on push (for non-main or if CI doesn’t exist)
   push:
     branches:
       - main
-      - feature/**   # optional — allow testing on feature branches
-      # - dev          # optional — allow dev environment deploys
+      - feature/**  # allow testing
+      - dev
 
-  # 3️⃣ Manual trigger anytime
   workflow_dispatch:
 
 jobs:
   deploy:
-    # Only run auto-deploy if CI passed OR triggered manually/push
     if: >
       github.event_name == 'workflow_dispatch' ||
       github.event_name == 'push' ||
@@ -33,6 +29,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Determine branch name
+        id: vars
+        run: |
+          echo "branch_name=${GITHUB_REF_NAME}" >> $GITHUB_OUTPUT
+
+      - name: Log branch being deployed
+        run: echo "🚀 Deploying branch: ${{ steps.vars.outputs.branch_name }}"
 
       - name: Test SSH connection to EC2
         uses: appleboy/ssh-action@v0.1.9
@@ -50,6 +54,9 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd /home/ubuntu/sentiment-mlops
-            git pull origin main
+            echo "Fetching latest code..."
+            git fetch origin
+            git checkout ${{ steps.vars.outputs.branch_name }} || git checkout -b ${{ steps.vars.outputs.branch_name }}
+            git pull origin ${{ steps.vars.outputs.branch_name }}
             chmod +x ./deploy.sh
             ./deploy.sh
