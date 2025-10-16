@@ -5,24 +5,47 @@ on:
     workflows: ["Continuous Integration"]
     types:
       - completed
+    branches:
+      - main
+
+  push:
+    branches:
+      - main
+      - feature/**  # allow testing
+      - dev
+
   workflow_dispatch:
 
 jobs:
   deploy:
-    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      github.event_name == 'push' ||
+      (github.event_name == 'workflow_run' &&
+       github.event.workflow_run.conclusion == 'success')
+
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Get branch name
+      - name: Determine branch name
         id: vars
-        run: echo "branch_name=${GITHUB_REF##*/}" >> $GITHUB_OUTPUT
+        run: |
+          echo "branch_name=${GITHUB_REF_NAME}" >> $GITHUB_OUTPUT
 
-      - name: Print branch
+      - name: Log branch being deployed
         run: |
           echo "🚀 Deploying branch: ${{ steps.vars.outputs.branch_name }}"
+
+      - name: Test SSH connection to EC2
+        uses: appleboy/ssh-action@v0.1.9
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: whoami
 
       - name: Deploy to EC2
         uses: appleboy/ssh-action@v0.1.9
@@ -32,6 +55,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd /home/ubuntu/sentiment-mlops
+            echo "Fetching latest code..."
             git fetch origin
             git checkout ${{ steps.vars.outputs.branch_name }} || git checkout -b ${{ steps.vars.outputs.branch_name }}
             git pull origin ${{ steps.vars.outputs.branch_name }}
