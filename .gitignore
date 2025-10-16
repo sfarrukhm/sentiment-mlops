@@ -6,3 +6,4 @@ app/__pycache__/
 nohup.out
 *cache*
 credentials/
+tests/
