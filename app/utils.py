@@ -1,64 +1,76 @@
-import torch
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
-import boto3
 import os
+import torch
 import logging
+import boto3
+from transformers import DistilBertTokenizer, DistilBertForSequenceClassification
+from torch.ao.quantization import quantize_dynamic
 
-# ------------- CONFIG -----------------
-s3_bucket = "mlops-s3-20251005"
-s3_model_path = "distilbert-imdb"
-local_model_dir = "models/distilbert-imdb"
-# model_name=
-
-# ------ Logger
-logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+S3_BUCKET = "mlops-s3-20251005"
+S3_BASE_PATH = "distilbert-imdb/v1"  # always load fine-tuned model from v1 path
+LOCAL_MODEL_DIR = os.path.join(os.path.dirname(__file__), "../models")
 
-def download_model_from_s3():
-    """Download model files from S3 if not already present locally."""
-    if os.path.exists(local_model_dir):
-        logger.info("Model already present locally.")
-        return
-    os.makedirs(local_model_dir, exist_ok=True)
+
+def download_from_s3(s3_client, s3_path, local_path):
+    """Download a single file from S3."""
+    os.makedirs(os.path.dirname(local_path), exist_ok=True)
+    s3_client.download_file(S3_BUCKET, s3_path, local_path)
+
+
+def load_model(quantize: bool = False):
+    """
+    Loads the fine-tuned DistilBERT model from S3.
+    If `quantize=True`, applies dynamic quantization for faster CPU inference.
+    """
+    logger.info(f"🔍 Loading fine-tuned DistilBERT model (quantize={quantize})")
     s3 = boto3.client("s3")
-    logger.info(f"Downloading model from s3://{s3_bucket}/{s3_model_path}....")
-    paginator = s3.get_paginator("list_objects_v2")
-    for result in paginator.paginate(Bucket=s3_bucket, Prefix=s3_model_path):
-        for obj in result.get("Contents", []):
-            key = obj["Key"]
-            local_path = os.path.join(
-                local_model_dir, os.path.relpath(key, s3_model_path)
-            )
-            os.makedirs(os.path.dirname(local_path), exist_ok=True)
-            s3.download_file(s3_bucket, key, local_path)
-            logger.info(f"Downloaded {key} to {local_path}")
-    logger.info("Model downloaded")
+
+    local_model_path = os.path.join(LOCAL_MODEL_DIR, "v1")
+    os.makedirs(local_model_path, exist_ok=True)
+
+    # Model files to fetch if missing
+    files = [
+        "config.json",
+        "model.safetensors",
+        "special_tokens_map.json",
+        "tokenizer.json",
+        "tokenizer_config.json",
+        "vocab.txt",
+    ]
+
+    for f in files:
+        local_file = os.path.join(local_model_path, f)
+        if not os.path.exists(local_file):
+            logger.info(f"📥 Downloading {f} from S3...")
+            download_from_s3(s3, f"{S3_BASE_PATH}/{f}", local_file)
+
+    # Load tokenizer + base fine-tuned model
+    tokenizer = DistilBertTokenizer.from_pretrained(local_model_path)
+    model = DistilBertForSequenceClassification.from_pretrained(local_model_path)
+
+    # Optionally apply quantization
+    if quantize:
+        logger.info("⚙️ Applying dynamic quantization for inference...")
+        model = quantize_dynamic(model, {torch.nn.Linear}, dtype=torch.qint8)
+        logger.info("✅ Quantized model ready.")
+
+    model.eval()
+    logger.info("✅ Model loaded and set to eval mode.")
+    return model, tokenizer, quantize
 
 
-# ---------- LOAD MODEL ----------
-def load_model():
-    """Load model and tokenizer from local or Hugging Face fallback."""
-    try:
-        download_model_from_s3()
-        tokenizer = AutoTokenizer.from_pretrained(local_model_dir)
-        model = AutoModelForSequenceClassification.from_pretrained(local_model_dir)
-        logger.info("Model loaded from local S3 copy.")
-    except Exception as e:
-        logger.warning(f"Falling back to Hugging Face model: {e}")
-        tokenizer = AutoTokenizer.from_pretrained(local_model_dir)
-        model = AutoModelForSequenceClassification.from_pretrained(local_model_dir)
-        logger.info("Model loaded from Hugging Face.")
-    return model, tokenizer
-
-
-# ---- inference
 def predict_text(model, tokenizer, text: str):
-    """Perform sentiment prediction for input text."""
-    inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True)
-    with torch.no_grad():
-        outputs = model(**inputs)
-        probs = torch.nn.functional.softmax(outputs.logits, dim=-1)
-        predicted_class = torch.argmax(probs, dim=-1).item()
+    """Run inference on text using the provided model and tokenizer."""
+    try:
+        inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True)
+        with torch.no_grad():
+            outputs = model(**inputs)
+            logits = outputs.logits
 
-        return "positive" if predicted_class == 1 else "negative"
+        pred = torch.argmax(logits, dim=1).item()
+        return "positive" if pred == 1 else "negative"
+
+    except Exception as e:
+        logger.error(f"Prediction error: {e}")
+        return "error"

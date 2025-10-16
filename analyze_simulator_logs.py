@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from datetime import datetime
 import numpy as np
+
 # -----------------------------
 # Config
 # -----------------------------
@@ -15,8 +16,9 @@ timestamps = []
 latencies = []
 results = []
 
+# Regex: capture timestamp, result, latency; ignore any extra fields like Q
 pattern = re.compile(
-    r"\[(.*?)\].*?\|\s*Result:\s*(\w+)\s*\|\s*Latency:\s*([\d\.]+)ms"
+    r"\[(.*?)\].*?\|\s*Result:\s*(\w+).*?\|\s*Latency:\s*([\d\.]+)ms"
 )
 
 with open(LOG_FILE, "r") as f:
@@ -29,6 +31,10 @@ with open(LOG_FILE, "r") as f:
             results.append(result)
 
 print(f"Parsed {len(latencies)} requests from log.")
+
+if not latencies:
+    print("No data found. Check log file path or format.")
+    exit()
 
 # -----------------------------
 # Plot latency over time (with moving average)
@@ -65,7 +71,7 @@ if latencies:
     print("\n=== Summary ===")
     print(f"Min latency: {min(latencies):.2f} ms")
     print(f"Avg latency: {sum(latencies)/len(latencies):.2f} ms")
-    print(f"P95 latency: {sorted(latencies)[int(len(latencies)*0.95)]:.2f} ms")
+    print(f"P95 latency: {np.percentile(latencies, 95):.2f} ms")
     print(f"Max latency: {max(latencies):.2f} ms")
 
     pos = results.count("positive")

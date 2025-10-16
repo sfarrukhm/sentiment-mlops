@@ -11,8 +11,6 @@ from tqdm import tqdm  # progress bar
 # Config
 # -----------------------------
 api_url = "http://52.13.56.115:8000/predict"
-concurrent_users = 20
-total_requests = 300
 
 LOG_DIR = "logs"
 os.makedirs(LOG_DIR, exist_ok=True)
@@ -69,18 +67,19 @@ sample_texts = [
 # -----------------------------
 # Async request
 # -----------------------------
-async def send_request(session, text):
+async def send_request(session, text,quantize):
     start = time.perf_counter()
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
+    payload={"text": text,'quantize':quantize}
 
     try:
-        async with session.get(api_url, params={"text": text}) as response:
+        async with session.post(api_url, json=payload) as response:
             result = await response.json()
             latency = (time.perf_counter() - start) * 1000  # ms
 
             # log only to file
             logger.info(
-                f"[{timestamp}] Text: {text[:30]:<30} | Result: {result.get('sentiment', 'N/A'):<8} | Latency: {latency:.2f}ms"
+                f"[{timestamp}] Text: {text[:30]:<30} | Result: {result.get('sentiment', 'N/A'):<8} | Q:{result.get('quantized')} | Latency: {latency:.2f}ms"
             )
     except Exception as e:
         logger.error(f"Error: {e}")
@@ -89,13 +88,13 @@ async def send_request(session, text):
 # -----------------------------
 # Main function with progress bar
 # -----------------------------
-async def main():
+async def main(concurent_users, total_requests,quantize):
     async with aiohttp.ClientSession() as session:
         tasks = []
         with tqdm(total=total_requests, desc="Simulating load", ncols=80) as pbar:
             for i in range(total_requests):
                 text = random.choice(sample_texts)
-                task = asyncio.create_task(send_request(session, text))
+                task = asyncio.create_task(send_request(session, text,quantize))
                 tasks.append(task)
 
                 if len(tasks) >= concurrent_users:
@@ -109,4 +108,15 @@ async def main():
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    import argparse
+    parser = argparse.ArgumentParser(description="Load Simulator for Sentiment API")
+    parser.add_argument('--concurrent', type=int, default=1, help='Number of concurrent users')
+    parser.add_argument('--requests', type=int, default=1, help='Total number of requests to send')
+    parser.add_argument('--quantize',type=str,default="true", help="Whether to use quantized model or fp32 model")
+    args=parser.parse_args()
+    concurrent_users = args.concurrent
+    total_requests = args.requests
+    quantize = args.quantize == "true"
+
+    asyncio.run(main(concurrent_users, total_requests,quantize))
+    

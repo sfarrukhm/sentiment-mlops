@@ -1,0 +1,16 @@
+With quantization
+=== Summary ===
+Min latency: 291.97 ms
+Avg latency: 1302.57 ms
+P95 latency: 2581.50 ms
+Max latency: 4830.67 ms
+Positive: 1732, Negative: 1268
+
+Without quantization
+
+=== Summary ===
+Min latency: 331.52 ms
+Avg latency: 3274.15 ms
+P95 latency: 5912.65 ms
+Max latency: 9143.29 ms
+Positive: 1584, Negative: 1198
